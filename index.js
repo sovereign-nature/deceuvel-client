@@ -3,7 +3,7 @@ const { request, gql } = require('graphql-request');
 
 async function getSoilData() {
     const query = gql`{
-      samples {
+      soil_samples {
         year
         location
         Cu
@@ -16,7 +16,7 @@ async function getSoilData() {
       }
     }`;
 
-    return request(this.soil_url, query);
+    return request(this.our_url, query);
 }
 
 async function getAirData() {
@@ -64,17 +64,43 @@ async function getAirData() {
     // return request(this.air_url, query);
 }
 
+async function getHistoricalAirData() {
+    const query = gql`{
+      air_samples {
+          time
+          number
+          airpressure
+          humidity
+          temperature
+          winddirection
+          windspeed
+          CO
+          CO2
+          NH3
+          NO
+          NO2
+          O3
+          PM10
+          "PM2.5"
+          SO2
+      }
+    }`;
+
+    return request(this.our_url, query);
+}
+
 async function getGisData() {
     // TODO
 }
 
 module.exports = function() {
-    this.soil_url = "http://localhost:3000/graphql";
+    this.our_url = "http://localhost:3000/graphql";
     //this.soil2_url = soil2_url;
     this.air_url = "https://nox.soops.nl/test/graphql";
-    this.gis_url = undefined;
+    //this.gis_url = undefined;
 
     this.getSoilData = getSoilData;
     this.getAirData = getAirData;
+    this.getHistoricalAirData = getHistoricalAirData;
     //this.getGisData = getGisData;
 }
