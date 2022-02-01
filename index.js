@@ -119,13 +119,53 @@ async function getSoilmaniaParametersData(args={}) {
     var arg_str = aux.length>0? "("+aux.join(", ")+") " : "";
 
     const query = gql`{
-      soil_mania_parameters ${arg_str}{
+      soilmania_parameters ${arg_str}{
           time
           acidity
           oxygen_index
           soil_conductivity
           soil_moisture
           soil_temperature
+      }
+    }`;
+
+    return request(this.our_url, query);
+}
+
+async function getSoilmaniaElementsData(args={}) {
+    var aux = [];
+
+    if(args.amount) aux.push("amount: " + args.amount);
+    if(args.start) aux.push("start: \"" + args.start + "\"");
+    if(args.end) aux.push("end: \"" + args.end + "\"");
+
+    var arg_str = aux.length>0? "("+aux.join(", ")+") " : "";
+
+    const query = gql`{
+      soilmania_elements ${arg_str}{
+          time
+          Al
+          As
+          B
+          Ca
+          Cd
+          Co
+          Cu
+          Fe
+          Hg
+          K
+          Mg
+          Mn
+          Mo
+          N
+          Na
+          Ni
+          P
+          Pb
+          S
+          Se
+          Si
+          Zn
       }
     }`;
 
@@ -148,4 +188,5 @@ module.exports = function() {
     this.getHistoricalAirData = getHistoricalAirData;
     //this.getGisData = getGisData;
     this.getSoilmaniaParametersData = getSoilmaniaParametersData;
+    this.getSoilmaniaElementsData = getSoilmaniaElementsData;
 }
