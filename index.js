@@ -1,9 +1,18 @@
 const { request, gql } = require('graphql-request');
 
 
-async function getSoilData() {
+async function getSoilData(args={}) {
+    var aux = [];
+
+    if(args.amount) aux.push("amount: " + args.amount);
+    if(args.location) aux.push("location: \"" + args.location + "\"");
+    if(args.start_year) aux.push("start_year: " + args.start_year);
+    if(args.end_year) aux.push("end_year: " + args.end_year);
+
+    var arg_str = aux.length>0? "("+aux.join(", ")+") " : "";
+
     const query = gql`{
-      soil_samples {
+      soil_samples ${arg_str}{
         year
         location
         Cu
@@ -19,10 +28,13 @@ async function getSoilData() {
     return request(this.our_url, query);
 }
 
-async function getAirData() {
+async function getAirData(args={}) {
     const query = gql`{
         stations {
         id
+        html
+        latitude
+        longitude
 
         latestReading {
           timestamp
@@ -64,9 +76,17 @@ async function getAirData() {
     // return request(this.air_url, query);
 }
 
-async function getHistoricalAirData() {
+async function getHistoricalAirData(args={}) {
+    var aux = [];
+
+    if(args.amount) aux.push("amount: " + args.amount);
+    if(args.start) aux.push("start: \"" + args.start + "\"");
+    if(args.end) aux.push("end: \"" + args.end + "\"");
+
+    var arg_str = aux.length>0? "("+aux.join(", ")+") " : "";
+
     const query = gql`{
-      air_samples {
+      air_samples ${arg_str}{
           time
           number
           airpressure
@@ -81,7 +101,7 @@ async function getHistoricalAirData() {
           NO2
           O3
           PM10
-          "PM2.5"
+          PM2_5
           SO2
       }
     }`;
