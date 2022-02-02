@@ -5,9 +5,9 @@ var client = new DeCeuvelClient();
 async function main() {
     var samples = undefined;
 
-    // get all samples => unadvised as there are more than 167K samples
+    // get all samples => unadvised as there are more than 175K samples
     //samples = await client.getHistoricalAirData();
-    //console.assert(samples?.air_samples.length == 167040, "get all samples");
+    //console.assert(samples?.air_samples.length == 175680, "get all samples");
 
     // get 100 samples
     samples = await client.getHistoricalAirData({amount: 100});
