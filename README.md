@@ -10,6 +10,10 @@ Then, you need to install the dependencies, with the command:
 npm install
 ```
 
+To install this library as a dependency for a project, execute the command:
+```
+npm install https://github.com/SovereignNature/deceuvel-client
+```
 ## Examples
 
 The directory [test](test/) contains a set of examples on how to use this client.
