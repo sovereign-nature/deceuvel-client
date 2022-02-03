@@ -5,12 +5,14 @@ Client for De Ceuvel data sets as a `npm` package.
 ## Requirements
 
 In order to use this, you need to have installed `node.js` and `npm` in your system.
-Then, you need to install the dependencies, with the command:
+
+There are two alternatives to use the client: i) clone the repository and install the dependencies or ii) install it as a dependency of another project.
+
+In case of i), execute the command:
 ```
 npm install
 ```
-
-To install this library as a dependency for a project, execute the command:
+In case of ii), execute the command:
 ```
 npm install https://github.com/SovereignNature/deceuvel-client
 ```
