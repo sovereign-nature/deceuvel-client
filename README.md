@@ -7,7 +7,7 @@ This repository contains a client, as a `npm` package, to retrieve the data gath
 In order to use this, you need to have installed `node.js` and `npm` in your system.
 
 There are two alternatives to use the client: </br>
-*i*) clone the repository <\br>
+*i*) clone the repository </br>
 *ii*) install it as a dependency of another project
 
 In case of *i*, execute the commands:
