@@ -18,7 +18,7 @@ npm install
 ```
 In case of *ii*, execute the command:
 ```
-npm install https://github.com/SovereignNature/deceuvel-client
+npm install git+https://github.com/SovereignNature/deceuvel-client.git
 ```
 
 ## Client Functions
