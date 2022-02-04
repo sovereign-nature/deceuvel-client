@@ -1,6 +1,6 @@
 # De Ceuvel Client
 
-This repository contains a client, as a `npm` package, to retrieve the data gathered from the De Ceuvel purifying park, located in the Netherlands.
+This repository contains a client, as a `npm` package, to retrieve the data gathered from the [De Ceuvel]() purifying park, located in the Netherlands.
 
 ## Requirements
 
