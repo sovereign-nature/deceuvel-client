@@ -2,46 +2,49 @@
 
 Client for De Ceuvel data sets as a `npm` package.
 
+This repository contains a client, as a `npm` package, to retrievethe data gathered from the De Ceuvel purifying park, located in the Netherlands.
+
 ## Requirements
 
 In order to use this, you need to have installed `node.js` and `npm` in your system.
 
-There are two alternatives to use the client: i) clone the repository and install the dependencies or ii) install it as a dependency of another project.
+There are two alternatives to use the client: i) clone the repository or ii) install it as a dependency of another project.
 
-In case of i), execute the command:
+In case of i), execute the commands:
 ```
+git clone git@github.com:SovereignNature/deceuvel-client.git
+cd deceuvel-client
 npm install
 ```
 In case of ii), execute the command:
 ```
 npm install https://github.com/SovereignNature/deceuvel-client
 ```
-## Examples
 
-The directory [test](test/) contains a set of examples on how to use this client.
-To run an example, simply execute the command:
-```
-node test/<TEST_FILE>.js
-```
-
-## Functions
+## Client Functions
 
 To use this client, first you have to import and create a client object:
 ```
-const DeCeuvelClient = require("../index.js");
+const DeCeuvelClient = require("../index.js");      // If you cloned the client
+const DeCeuvelClient = require("deceuvel-client");  // If you installed the client
+
 var client = new DeCeuvelClient();
 ```
 
-### Air Samples
+### Air Data
 
-Get air samples:
+This data comes from two sensors installed at De Ceuvel by the company [Soops.nl](https://nox.soops.nl/). One was installed earlier last year (2021) and the second one only recently (2022). These sensors measure air quality by sensing the presence the following gases and pollutants: CO2, SO2, CO, NO2, O3, NO, NH3 and particulate matter PM2.5 and PM10.
+
+#### Air Samples
+
+Retrieve the current data from the sensors trough our client:
 ```
 var samples = await client.getAirData();
 ```
 
-### Historical Air Samples
+#### Historical Air Samples
 
-Get air samples:
+Retrieve a set of samples that were periodically recorded (there is a time gap in the data due to sensor malfunction):
 ```
 var samples = await client.getHistoricalAirData(options);
 ```
@@ -54,7 +57,13 @@ where `options` is an object with the following optional fields:
 }
 ```
 
-### Soil Samples
+### Soil Data
+
+
+
+#### Soil Samples
+
+This data was periodically collected since the start of the project back in 2018.
 
 Get soil samples:
 ```
@@ -70,7 +79,11 @@ where `options` is an object with the following optional fields:
 }
 ```
 
-### Soilmania Parameters
+#### Soilmania Parameters
+
+This data comes from the Soil Life Sensor from [Soilmania]() we recently installed in the De Ceuvel park. 
+It measures soil temperature, Soil moisture, pH, Oxygen, Soil nutrients. 
+This information together gives you very holistic insight into soil health and the health of the ecosystem that depends upon it (i.e., trees, bacteria, and animals).
 
 Get soilmania parameters:
 ```
@@ -85,7 +98,7 @@ where `options` is an object with the following optional fields:
 }
 ```
 
-### Soilmania Element Availability
+#### Soilmania Element Availability
 
 Get soilmania element availability:
 ```
@@ -98,4 +111,12 @@ where `options` is an object with the following optional fields:
     start: <ISO Date String>, // Retrieve samples with timestamp greater or equal than start
     end: <ISO Date String>    // Retrieve samples with timestamp lower or equal than end
 }
+```
+
+## Examples
+
+The directory [test](test/) contains a set of examples on how to use this client and its functions.
+To run an example, simply execute the command:
+```
+node test/<TEST_FILE>.js
 ```
