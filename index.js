@@ -178,7 +178,7 @@ async function getGisData() {
 }
 
 module.exports = function() {
-    this.our_url = "http://localhost:3000/graphql";
+    this.our_url = "http://89.233.107.133:3030/graphql";
     //this.soil2_url = soil2_url;
     this.air_url = "https://nox.soops.nl/test/graphql";
     //this.gis_url = undefined;
