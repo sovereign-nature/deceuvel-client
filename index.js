@@ -178,7 +178,9 @@ async function getGisData() {
 }
 
 module.exports = function() {
-    this.our_url = "http://data.deceuval.bitchur.ch/graphql";
+
+    this.our_url = "https://data.deceuval.bitchur.ch/graphql";
+
     //this.soil2_url = soil2_url;
     this.air_url = "https://nox.soops.nl/test/graphql";
     //this.gis_url = undefined;
