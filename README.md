@@ -61,7 +61,7 @@ where `options` is an object with the following optional fields:
 
 #### Soil Samples
 
-Manually mapped and collected by the DeCeuval voluntary biologists since the start of the project back in 2018. Maps and raw data available for dowload [here](https://wetransfer.com/downloads/0f72a166e00983cdcaf028323492e43120220110090302/f4eca7b4195d8bbe3460f770781911d120220110090405/c249ae?utm_campaign=WT_email_tracking&utm_content=general&utm_medium=download_button&utm_source=notify_recipient_email).
+Manually mapped and collected by the DeCeuval voluntary biologists since the start of the project back in 2018. Maps and raw data available for dowload [here](https://drive.google.com/file/d/1RGEMIUYIdoC49G5XMwqbnHhf85rrd4ce/view?usp=sharing).
 
 Get soil samples:
 ```
